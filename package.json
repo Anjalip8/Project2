@@ -1,0 +1,17 @@
+{
+  "name": "my-first-lambda",
+  "version": "1.0.0",
+  "description": "## Serverless:",
+  "main": "index.js",
+  "scripts": {
+    "start": "serverless offline start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "serverless": "^3.39.0",
+    "serverless-offline": "^13.6.0"
+  }
+}
