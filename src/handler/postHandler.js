@@ -1,9 +1,12 @@
 const { postService } = require("../service/postService");
 
 const postHandler = async () => {
-  const posts = await postService();
+  const posts = await postService().catch((e) => {
+    console.log(e);
+    throw e;
+  });
 
-  // * additional functionlities
+  // * additional functionlities.
 
   return {
     statusCode: 200,

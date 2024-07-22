@@ -5,16 +5,23 @@ const { postHandler } = require("./handler/postHandler");
 module.exports.handler = async (events, context) => {
   const endpoint = events.pathParameters?.proxy;
 
-  switch (endpoint) {
-    case "posts": {
-      return await postHandler();
-    }
+  try {
+    switch (endpoint) {
+      case "posts": {
+        return await postHandler();
+      }
 
-    default: {
-      return {
-        statusCode: 404,
-        body: JSON.stringify("not found"),
-      };
+      default: {
+        return {
+          statusCode: 404,
+          body: JSON.stringify("not found"),
+        };
+      }
     }
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify(error),
+    };
   }
 };
